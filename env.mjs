@@ -9,7 +9,7 @@ import { z } from "zod";
  */
 export const schema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
-  DATABASE_URI: z.string()
+  DATABASE_URL: z.string()
 });
 
 /**
@@ -18,7 +18,7 @@ export const schema = z.object({
  */
 export const env = {
   NODE_ENV: process.env.NODE_ENV,
-  DATABASE_URI: process.env.DATABASE_URI
+  DATABASE_URL: process.env.DATABASE_URI
 };
 
 /**
