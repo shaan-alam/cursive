@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button";
+"use client";
 import { Spotlight } from "@/components/ui/spotlight";
 
 export default function Home() {
   return (
     <main className="flex h-screen bg-black items-center justify-center">
       <Spotlight />
-      <div className='text-center'>
+      <div className="text-center">
         <h1 className="text-white font-bold text-7xl text-center">Cursive</h1>
         <p className="text-muted-foreground text-xl text-center w-1/2 mx-auto mt-6">
           Discover the future of teamwork with SyncPad - your go-to platform for
