@@ -18,7 +18,7 @@ export const schema = z.object({
  */
 export const env = {
   NODE_ENV: process.env.NODE_ENV,
-  DATABASE_URL: process.env.DATABASE_URI
+  DATABASE_URL: process.env.DATABASE_URL
 };
 
 /**
