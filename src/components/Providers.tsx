@@ -1,13 +1,14 @@
 "use client";
 
-import superjson from "superjson";
 import { trpc } from "@/app/_trpc/client";
 import { absoluteUrl } from "@/lib/utils";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
+import { SessionProvider } from "next-auth/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { PropsWithChildren, useState } from "react";
 import { toast } from "sonner";
+import superjson from "superjson";
 
 const Providers = ({ children, ...props }: PropsWithChildren) => {
   const [queryClient] = useState(
@@ -37,11 +38,13 @@ const Providers = ({ children, ...props }: PropsWithChildren) => {
   );
 
   return (
-    <trpc.Provider client={trpcClient} queryClient={queryClient}>
-      <QueryClientProvider client={queryClient}>
-        <NextThemesProvider {...props}>{children}</NextThemesProvider>
-      </QueryClientProvider>
-    </trpc.Provider>
+    <SessionProvider>
+      <trpc.Provider client={trpcClient} queryClient={queryClient}>
+        <QueryClientProvider client={queryClient}>
+          <NextThemesProvider {...props}>{children}</NextThemesProvider>
+        </QueryClientProvider>
+      </trpc.Provider>
+    </SessionProvider>
   );
 };
 

@@ -1,7 +1,9 @@
-"use client";
 import { Spotlight } from "@/components/ui/spotlight";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="flex h-screen bg-black items-center justify-center">
       <Spotlight />
